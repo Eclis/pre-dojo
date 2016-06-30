@@ -1,0 +1,22 @@
+= Partidas
+
+[cols="<,<"]
+|===
+| Partida: *11348965*
+| Duraçao (min): *5*
+| Início: *23/04/2013 15:34:22*
+| Fim: *23/04/2013 15:39:22*
+| Vencedor: *Roman*
+| Arma Preferida: *M16*
+|===
+
+[options="header"]
+|===
+
+|Jogador |Assassinatos |Mortes |MaxStreak |Awards
+|Roman |1 |0 |1 |1 
+|Nick |0 |2 |0 |0 
+|===
+
+---
+

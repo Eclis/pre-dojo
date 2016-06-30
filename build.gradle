@@ -1,0 +1,41 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+
+mainClassName = "pre.dojo.eclis.Main" 
+
+defaultTasks 'clean', 'uberjar'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    // The production code uses the SLF4J logging API at compile time
+    compile 'org.slf4j:slf4j-api:1.7.13'
+    compile 'org.asciidoctor:asciidoctorj:1.5.4'
+	compile 'commons-io:commons-io:2.5'
+	
+    // Declare the dependency for your favourite test framework you want to use in your tests.
+    // TestNG is also supported by the Gradle Test task. Just change the
+    // testCompile dependency to testCompile 'org.testng:testng:6.8.1' and add
+    // 'test.useTestNG()' to your build script.
+    testCompile 'junit:junit:4.12'
+}
+
+task uberjar(type: Jar, dependsOn: ['classes', 'writeClasspath']) {
+    from { configurations.compile.collect { zipTree(it) } }
+    exclude 'META-INF/*.SF'
+    exclude 'META-INF/*.RSA'
+    from 'build.gradle'
+    from "$buildDir/classpath.txt"
+    from "$buildDir/classes/main"
+    manifest {
+        attributes 'Main-Class': project.mainClassName
+    }
+}
+
+task writeClasspath << {
+    buildDir.mkdirs()
+    new File(buildDir, 'classpath.txt').write(configurations.runtime.asPath + '\n')
+}

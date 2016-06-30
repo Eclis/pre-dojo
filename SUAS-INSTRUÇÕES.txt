@@ -1,2 +1,20 @@
-Coloque aqui suas instru��es ou coment�rios que ache �til/relevantes para possamos ler 
-quando estivermos avaliando a sua solu��o
+Quando li a proposta de projeto, logo pensei no Grails, pois ele facilita e agiliza
+muito o processo de desenvolvimento, porém, como a vaga pede conhecimentos em Java e o 
+Grails é em Groovy, resolvi utilizar o Gradle como builder e gestor de dependências (que 
+também é utilizado pelo Grails na versão 3.x).
+
+Para importar o projeto no eclipse, utilizar comando
+
+$ ./gradlew eclipse
+
+Configurei no gradle também a possibilidade de gerar um JAR auto-executável. Para executar
+a solução com o jar, executar os comandos
+
+$ ./gradlew
+$ java -jar build/libs/pre-dojo.jar <log_file>
+
+Obs: Caso não passe nenhum arquivo de log, será utilizado um log default criado durante
+a implementação, que fica na raiz do projeto (log.txt).
+
+Após executar o programa, imprimirá o resultado calculado bem como uma página HTML
+(baseado em asciidoc) para melhor visualização.
